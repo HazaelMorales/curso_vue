@@ -1,7 +1,7 @@
 // Importamos la biblioteca Axios
 import axios from 'axios'
 
-const apiKey = 'wuFt9hmiKzpGt0AAY6sYmTHdBCUhlUcE'
+const apiKey = 'apiKeyGiphy'
 // https://api.giphy.com/v1/gifs/random?apikey=${apiKey}
 
 // Creamos una instancia de Axios con una configuración base para realizar solicitudes a la API de Giphy

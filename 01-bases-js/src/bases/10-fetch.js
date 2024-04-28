@@ -1,5 +1,5 @@
-const apiKey = 'wuFt9hmiKzpGt0AAY6sYmTHdBCUhlUcE'
-// https://api.giphy.com/v1/gifs/random?apikey=wuFt9hmiKzpGt0AAY6sYmTHdBCUhlUcE
+const apiKey = 'apyKeyGiphy'
+// https://api.giphy.com/v1/gifs/random?apikey=apyKeyGiphy'
 
 // Realizamos una solicitud fetch a la API de Giphy para obtener un gif aleatorio
 fetch(`https://api.giphy.com/v1/gifs/random?apikey=${apiKey}`)
