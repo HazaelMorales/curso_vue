@@ -4,25 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue.js Intro</title>
+    <!-- Se importa Vue.js desde CDN -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
 </head>
 <body>
     <!-- Control absoluto de este DIV -->
     <div id="myApp">
+        <!-- Encabezado que muestra el título de la página junto con la propiedad newQuote -->
         <h1>Batman Quotes <small>{{ newQuote }}</small></h1>
-        <input type="text" v-model="newQuote">
-        <hr>
+        <!-- Input para ingresar nuevas citas, con vinculación bidireccional a la propiedad newQuote -->
+        <input 
+            type="text"
+            v-model="newQuote" 
+            v-on:keypress.enter="addQuote">
+        <hr> <!-- Línea divisoria -->
         <ul>
+            <!-- Iteración sobre el array de citas, mostrando cada cita junto con su autor (si existe) -->
             <li v-for="({ quote,author }, index) in quotes"> 
+                <!-- Se muestra el índice de la cita y el contenido de la cita -->
                 <span> {{index + 1}} {{quote}}</span> 
-                <blockquote> -{{author}}</blockquote>
+                <!-- Bloque de autor que se muestra si el autor existe -->
+                <blockquote v-show="author"> -{{author}}</blockquote>
             </li>
         </ul>
     </div>
-    
-
-    
     <script src="app.js"></script>
 </body>
 </html>

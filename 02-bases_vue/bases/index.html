@@ -4,24 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue.js Intro</title>
+    <!-- Se importa Vue.js desde CDN -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
 </head>
 <body>
-    <!-- Control absoluto de este DIV -->
     <div id="myApp">
         <h1> Hola Mundo </h1>
+        <!-- Se muestra el resultado de la expresión 1 + 1 -->
         <p> {{ 1 + 1}} </p>
-        <!--p> {{ message }} </p-->
+        <!-- Sección comentada, no se muestra -->
+        <!-- <p> {{ message }} </p> -->
+        <!-- Se muestra la propiedad 'quote' definida en Vue.js -->
         <p> {{ quote }} </p>
+        <!-- Se muestra la propiedad 'author' definida en Vue.js dentro de un bloque de citas -->
         <blockquote> {{ author }} </blockquote>
 
+        <!-- Botón que llama al método 'changeQuote' cuando se hace clic -->
         <button v-on:click="changeQuote">
             Change quote
         </button>
     </div>
-    
-
     
     <script src="app.js"></script>
 </body>
