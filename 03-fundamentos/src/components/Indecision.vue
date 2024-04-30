@@ -45,17 +45,24 @@ export default {
     methods: {
     // Método para obtener una respuesta de la API
     async getAnswer() {
-        // Se establece la respuesta inicial mientras se espera la respuesta de la API
-        this.answer = 'Pensando....'
-        
-        // Se hace una solicitud a la API y se espera la respuesta
-        const { answer, image } = await fetch('https://yesno.wtf/api').then(response => response.json())
-        
-        // Se actualiza la respuesta con el resultado obtenido de la API
-        this.answer = answer === 'yes' ? 'Si!' : 'No'
-        
-        // Se actualiza la imagen con el resultado obtenido de la API
-        this.img = image
+            try{
+                // Se establece la respuesta inicial mientras se espera la respuesta de la API
+                this.answer = 'Pensando....'
+                
+                // Se hace una solicitud a la API y se espera la respuesta
+                const { answer, image } = await fetch('https://yesno.wtf/api').then(response => response.json())
+                
+                // Se actualiza la respuesta con el resultado obtenido de la API
+                this.answer = answer === 'yes' ? 'Si!' : 'No'
+                
+                // Se actualiza la imagen con el resultado obtenido de la API
+                this.img = image
+            
+            }catch(error){
+                console.log('IndecisionComponent: ', error)
+                this.answer = 'No se pudo cargar el API'
+                this.img = null
+            }
         }
     },
 
@@ -64,6 +71,8 @@ export default {
         question(value, oldValue) {
             // Se establece inicialmente que la pregunta no es válida
             this.isValidQuestion = false
+
+            console.log({value})
             
             // Si la pregunta no incluye un signo de interrogación, no se realiza nada más
             if (!value.includes('?')) return
